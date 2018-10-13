@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Labels</title>
+</head>
+<body>
+<!-- doesn't work for everything, chrome does work -->
+
+<!-- action - where the form sends data -->
+<!-- method - what HTTP methos (get/post) -->
+<!-- CTRL / to get the comment -->
+
+<!-- <form action="http://wikipedia.org" method="GET">
+	 we can redirect the form once submitted -->
+<!-- 	<form>
+		 <label>
+		 	Username:
+		 	<input type="text" name="username" placeholder="username">
+		 </label>
+		 <label>
+		 	Password:
+		 	<input type="text" name="password" placeholder="password">
+			</label>
+	</form> -->
+	<form action="http://wikipedia.org">
+		<label for="username"> Email: </label>
+		<input id="username" type="email" name="username" placeholder="username" required >
+
+<!-- just having REQUIRED in the input makes it needed. To be more specific though, add type="email" -->
+
+		<label for="password"> Password:</label>
+		<input id="password" type="text" name="password" placeholder="password">
+
+
+		<input type="Submit">
+	</form>
+</body>
+</html>
