@@ -1,0 +1,59 @@
+<!-- Radio Button -->
+<!-- select Tag -->
+<!-- textarea tag -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inputs Demo</title>
+</head>
+<body>
+
+
+<!-- <form>
+		<input type="Radio">
+		<input type="checkbox" name="">
+	</form> -->
+
+<!-- checkbox can select many & check on and off (mutiple choice ex:health issues) -->
+<!-- only have one choice, has to select one (gender -- cant choose mulitiple) -->
+
+
+	<form>
+		<label for="dogs">Dogs:</label>
+		<input name="petchoice" id="dogs" type="Radio" value="DOGS">
+		
+		<label for="cats"> Cats:</label>
+		<input name="petchoice" id="cats" type="Radio" value="CATS">
+
+		<p> What's your favorite color?</p>
+		<select name="color">
+			<option>Red</option>
+			<option>Orange</option>
+			<option>Yellow</option>
+		</select>
+
+
+		<p> What's your current mood?</p>
+		<select name="mood">
+			<option value="happy"> :) </option>
+			<option value="neutral"> :| </option>
+			<option value="sad"> :( </option>
+		</select>
+
+		<input name="one liner" type="text"> 
+<!-- only one line-->
+
+		<textarea name="basic textarea"></textarea>
+<!-- basic text area -->
+
+		<textarea name="paragraph" rows="10" cols="20"></textarea> 
+<!-- give the text box dimension -->
+		<button> Go!</button>
+	</form>
+<!-- by giving the same name, we're linking them -->
+<!-- if a button is the last thing in the form, it will automatically submit the form -->
+<!-- adding value="" returns that in the web address instead of the actual choice selected -->
+
+</body>
+</html>
