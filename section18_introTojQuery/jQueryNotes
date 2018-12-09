@@ -1,0 +1,297 @@
+What is jQuery?
+    a library to help us code more efficiently
+
+Resources for more info:
+    api.jquery.com
+    youmightnotneedjquery.com
+        check out instances when & when not to use it
+
+Why use jQuery
+    * fixes "broken" DOM API
+    * clearer & shorter code
+    * Ease of use
+    * Cross-browser support (the messy side of coding)
+    * AJAX
+    * lots of people use it (strong community & resources)
+    * it's worth knowing
+
+why not use jquery
+    * can do it all yourself
+    * an unnecessary dependency
+    * lots of people are moving away from jQuery
+    * the DOM API is no longer "broken"
+
+Adding jQuery
+    * Download jQuery & link to it locally
+        download from https://jquery.com/download/    (compressed is faster) & (downloaded copy is slightly faster to process)
+            <script type="text/javascript" src="jquery.ja (this changes depending on where it is)"></script>
+    OR
+    * Link to a CDN (a hosted copy)  --> search CDN jQuery
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+            The integrity and crossorigin attributes are used for Subresource Integrity (SRI) checking.
+            This allows browsers to ensure that resources hosted on third-party servers have not been tampered with.
+            Use of SRI is recommended as a best-practice, whenever libraries are loaded from a third-party source.
+            Read more at srihash.org
+
+Selecting with jquery   --> $("selectorGoesHere")
+    similar to querySelectorAll
+        we provide a CSS style selectpr & jQuery returns all matching elements
+
+        ex:
+            (selecting all img tags)
+            $("img")
+
+            (selecting all elements with class 'sale')
+            $(".sale")
+
+            (selecting all li items)
+            $("li a")
+
+Manipulating style
+    the .css() method is jQuery's interface to styling
+        $(selector)
+        .css(property, value)
+
+        ex:
+
+        (selecting elements with id "special" and give it a border)
+            $("#special").css("border", "2px solid red");  **this is much more powerful than w/o jQuery
+
+        (^^ w/o jQuery):
+            document.querySelector("#special").style.color = "red";
+
+        (we can also pass in an object with styles)
+            var styles = {
+                backgroundColor : "pink",
+                fontWeight: "bold"
+            };
+            $("#special").css(styles);
+
+    can use jQuery to style multiple elements at once
+        (select all li's  & make them yellow)
+            $("li").css("color", "yellow");
+
+        (select all elements with class "big" & give orange border)
+            $(".big").css("border", "1px dashed orange");
+
+            $("div#third").css("border", "2px solid orange");
+
+        (we can also pass in an object with styles)
+            $("#special").css({
+                backgroundColor : "pink",
+                fontWeight: "bold"
+            });
+
+        (Select the first div only & change its font color to pink)
+            $("div:first-of-type").css("color", "pink");
+            $("div:first").css("color", "pink");
+                ( ^^ slighty slower but built in to jQuery vs ^^ first-of-type = built in to css)
+
+jQuery Methods
+
+    .val()
+            gets the current value of the first element in the set of matched elements
+            or set the value of every matched element
+
+            for values
+                $("input").val("This is awesome");
+                    makes the value in the input box "this is awesome"
+                $("input").val("");
+                    clears the value
+                $("select").val();
+                    on a drop down selector, this tells you what the user chose
+
+
+            Read more at    https://api.jquery.com/val/
+
+    .text()
+            ex:  in console.log
+                $("h1").text();
+                   prints out the text in the h1
+                $("h1").text("New Content");
+                   replaces the content in that h1
+            Read more at    https://api.jquery.com/text/
+
+            **if we're having the user type something in, we'll usually use .text(); instead of .html();
+
+    attr()
+            gets the value of an attribute for the 1st element in the set of matched elements
+            or set 1+ attributes for every matched element
+            ** Getter & Setter paradigm
+
+            $( "#greatphoto" ).attr( "title", "Photo by Kelly Clark" );
+                ( ^^ changes the title of the img)
+
+                $( "#greatphoto" ).attr({
+                    alt: "Beijing Brush Seller",
+                    title: "photo by Kelly Clark"
+                });
+                    ( ^^ can change multiple values at once)
+
+            Read more at    https://api.jquery.com/attr/
+
+
+    html()
+            ex:  in console.log
+                $("h1").html();
+                   prints out the text in the h1 WITH THE HTML TAGS
+                $("h1").html("New Content");
+                   replaces the content in that h1
+            Read more at   https://api.jquery.com/html/
+
+    addClass()
+            helps you assign a class or muiltiple classed to elements at once
+
+                $("h1").addClass("correct");
+                    adds the class "correct" to any and all h1's
+
+            Read more at    https://api.jquery.com/addclass/
+
+    removeClass()
+            same as ^^ add class but opposite
+                removes that class
+
+            Read more at    https://api.jquery.com/removeclass/
+
+    toggleClass()
+            Will add that class to the element if it DOES NOT have it
+            will remove that class from the element is it DOES have it
+
+            Read more at https://api.jquery.com/toggleClass/
+
+
+
+******************* ADVANCED jQUERY **************************
+
+Methods you'll use a TON
+
+    .click();
+            quick & easy way to ADD a click listener to elements
+
+                $("submit").click(function(){
+                    console.log("Another Click");
+                });
+                    (prints when item w/ id "submit" is clicked)
+
+                $("button").click(function(){
+                    alert("someone clicked a button");
+                });
+                    (alerts when ANY button is clicked)
+
+                $("button").click(function(){
+                    $(this).css("background", "pink");
+                });
+                    (changed the button background color to pink when any button is clicked)
+
+            Read more at    https://api.jquery.com/click/
+
+    .keypress();
+            quick & easy way to ADD a click listener to elements
+
+                $('input[type="text"]').keypress(function(){
+                    alert("text input keypress!");
+                });
+                    (listens for any keypess in any text input)
+
+
+            Read more at    https://api.jquery.com/keypress/
+
+**  .on();
+            works similarly to addEventListener
+            it lets you specify the type of event to listen for
+
+                $("submit").on("click", function(){
+                    console.log("another click");
+                });
+                    (prints when item w/ id "submit" is clicked)
+
+                $("button").on('click', function(){
+                    alert("button clicked!");
+                });
+                    (alerts when ANY button is clicked)
+
+                $("h1").on("click", function(){
+                    $(this).css("color", "purple");
+                });
+                    changes the color of the h1 that is clicked to purple
+
+                $("input").on("keypress" function(){
+                    console.log("keypressed!");
+                });
+                    (console.logs every time a key is pressed in the input)
+
+                $("button").on("mouseenter", function(){
+                    $(this).css("font-weight", bold);
+                });
+                    (bolds the button every time it's hovered but stays bold)
+
+            Read more at    https://api.jquery.com/on/
+
+    Why use .on()?
+        in most cases, click() and on("click") will both get the job done
+        HOWEVER, there is one key difference
+            * click() only adds listeners for existing elements
+            * on() will add listeners for all potential future elements
+            *
+
+
+
+jQuery Effects      https://api.jquery.com/category/effects/
+
+        .fadeOut()
+            .fadeOut( [duration ] [, complete ])
+            .fadeOut( [duration ] [, easing ] [, complete ] )
+
+                    $('div').fadeOut();
+
+                    $("button").on("click", function(){
+                        $("div").fadeOut(1000);
+                    });
+
+                **elements are not deleted from page, just set to display: none;
+
+                    $("button").on("click", function(){
+                        $("div").fadeOut(1000);
+                        console.log("fade completed")
+                    });
+                        (get "fade completed" before it actually finished because the js responds faster than fade occurs)
+
+                ** can delete them after faded
+                    $("button").on("click", function(){
+                        $("div").fadeOut(1000, function(){
+                            $(this).remove();
+                        });
+                    });
+                        (deletes after faded is completed with this format)
+
+                Read More at    https://api.jquery.com/fadeOut/
+
+
+        .fadeToggle
+
+                $("button").on("click", function(){
+                    $("div").fadeToggle(500);
+                });
+                    (knows if it needs to fade something in or out depending on if it's showing or not)
+
+                Read more   https://api.jquery.com/fadeToggle/
+
+
+        .slideDown()
+
+                $("button").on("click", function(){
+                    $("div").slideDown(500);
+                });
+                    (effect = slide down to look awesome)
+
+                Read more at    https://api.jquery.com/slideDown/
+
+        .slideUp()
+                does the opposite of ^^
+
+        .slideToggle
+                works just like .fadeToggle
+
+                ** decides on slide up or down depending on it it's visible or not

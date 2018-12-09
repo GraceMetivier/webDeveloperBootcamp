@@ -1,0 +1,12 @@
+		/*instead of this in JS...
+			var tag = document.getElementById("highligt");
+			tag.style.color = "blue";
+			tag.style.border = "10px solid red";
+
+		define a class in CSS
+*/
+/*but pick a name as in some sort of class */
+	.some-class {
+		color: blue;
+		border: 10px solid red;
+	}

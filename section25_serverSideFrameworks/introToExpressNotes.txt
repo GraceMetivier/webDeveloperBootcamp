@@ -1,0 +1,64 @@
+#Intro to Express
+        ******expressjs.com *************
+
+        * What is a framework
+            *library & framework = external code that someone else created that we can use
+            * how is it different from a library?
+                * framework = inversion of control
+                    * framework controls us vs we control libraries
+                *all of the control flow is already in the framework
+                    * a bunch of predefined white spots that you can fill out in your code
+                    * a lot of the code already exists to skip the set up work & basic things in building an app
+        * what is Express
+            * a web dev framework
+            * the glue that keeps things together
+            * makes developing faster
+        * Why are we using Express?
+            * super popular, lots of documentation & tutorials
+            * Heavy weight
+                * a lot of text with only a few parts you can add your own code
+                * ex: ruby (extremely opinionated) ==> lots of hand-holding, very reliant on the framework
+            * light weight
+                * 'un-opinionated' = flexible, lots room for your code
+                * more wiggle room for coding
+                * great first framework to learn
+
+
+
+
+#NPM Init and Package.json (JS object notation)
+    ******docs.nodejitsu.com****************************
+        * command line:
+           1) npm init
+           2) npm install <express> --save
+                    ** one doc I read said to do '<express>' while another just said 'express'
+                            ** when I just used 'express' it showed errors.
+                            ** try both ways
+           3) fill out the prompts it gives you
+
+        * Use the '--save' flag to install packages
+                * it's supposed to help add "dependency" & "express" lines to file but mine isn't doing that
+        * Explain what package.json file does
+                * adds the library to your doc
+        * use 'npm init' to create a new package.json
+
+
+#More Routing!
+
+        * show the '*' (splat) route matcher
+                * the '*' lets us show a message to any other /blahblahblah
+                        * instead of the route of "/", "/bye", "/dog" pages
+        * write routes containing route parameters
+                *    app.get("*", function(req, res){
+                         res.send("YOU ARE A STAR!");
+                     });
+        * Discuss Route Order
+                * If ^^ is put at the beginning of the page, it overwrites everything else
+                * First route that matches that request will be run & we're done, never moves on to other routes
+                * keep it on the last line
+        ** TRICK***
+                * Sometimes we don't want letter for letter in our url response
+                    * to get around this, we put a ':' in our command
+                    * EX: app.get("/r/:subredditName", function(req, resp){
+                            res.send("welcome to a subreddit");
+                          });

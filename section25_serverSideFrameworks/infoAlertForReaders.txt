@@ -1,0 +1,6 @@
+Section 25, Colt Steele had us create an account on Cloud9 to have us practice this app version of the terminal (to streamline it for students)
+
+I've copied all that I can to these files within 'section25_serverSideFrameworks' but not all of it could be transferred.
+
+To see all of my work for this section, follow this link
+https://preview.c9users.io/gracemetivier/webdevbootcamp

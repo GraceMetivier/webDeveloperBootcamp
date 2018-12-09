@@ -1,0 +1,70 @@
+#Intro to API's
+
+        * opens up possibilities for things we can build
+            * not needing to do things from scratch
+        * API = Application Program/programming Interface
+            * interfaces for code/computers to talk to one another
+        * web API
+            * web version
+            * json -> no fluff on the user side
+            * IFTTT.com -> a way to connect API (visual interface)
+
+#JSON & XML
+
+        * Data Formats
+            * when we use the Internet, we make HTTP requests and get HTML back
+            * API's don't respond with HTML
+                    * HTML contains info for structure of pg
+                    * API's respond w/ data, not structure
+            * they use similar formats like HTML & JSON
+
+        * XML --> Extended Markup Language
+            * syntacticly similar to HTML but does not describe the presentation the same
+                    <person>
+                        <age> 23 </age>
+                        <name> Grace </name>
+                        <city> Boulder </city>
+                    </person>
+
+        * JSON --> Javascript Object Notation
+            * looks exactly like JS objects but everything is a string
+                    {
+                    "person":{
+                        "age": "23",
+                        "name": "Grace",
+                        "city": "Boulder"
+                     }
+                    }
+
+#Making API Requests w/ Node
+
+        * In terminal
+            * request URL --> same as in the browser but formatted differently
+                    $ curl http://www.google.com
+            * request in Nde
+                * set up folders
+                    $ mkdir APIs
+                    $ cd APIs
+                    $ touch first_request.js
+                            \--> in this file, write:
+                                var request = require('request');
+                                request('http://google.com', function(error, response, body){
+                                    if(!error && response.statusCode == 200){
+                                    console.log(body) //shows the HTML for the Google homepage
+                                    }
+                                });
+                                    ^ much more DRY
+                                Or, basically, this:
+                                var request = require('request');
+                                request('http://www.google.com', function(error, response, body){
+                                    if(error){
+                                        console.log("SOMETHING WENT WRONG!");
+                                        console.log(error);
+                                    } else{
+                                        if(response.statusCode == 200){
+                                            //things worked!!
+                                            console.log(body);
+                                        }
+                                    }
+                                });
+                    ~/workspace/APIs $ npm install request

@@ -1,0 +1,50 @@
+
+
+Internet Basics
+    url --> ip address to send you to & new HTTP request is make
+    www.udemy.com --> 23.235.47.175
+
+    query is submitted to your ISP
+    w/in ISP, the DNS takes Domain name & turns it into an IP adress
+
+    Going to that address
+        * a request is sent to desired IP address via HTTP
+        * your request finds the fastest path possible to the server with the specified IP
+        * Not direct journey
+            * requires hopping from server to server until we arrive
+
+    Udemy Server Responds
+        * the requested sever figures out exactly what we're asking for ( /course)
+        * server builds us the right content, often pulling info from database
+        * server responds with any combo of HTML, CSS & JS
+
+
+
+Static vs Dynamic Sites
+
+    dynamic --> compiled on server side
+        server pulling together & compiling web page before it's sent back as a response
+            * could have different HTML/CSS/JS every time (ex: reddit & facebook)
+
+    static --> what we've made so far
+        same HTML/CSS/Js every time
+
+
+
+Stacks/Back End Technologies
+    stacks = which particular choices the developers made & exact technologies they used
+
+                            Generic Stack
+                          =================
+            [Backend Lanuage/app]  [server]  [database]     (<== backend dynamic)
+            ___________________________________________(line distinguishes b/w front and back end)
+                ||
+               \  /
+                \/
+
+            [HTML/CSS/JS]   ==> [google]            (<== frontend static)
+
+            (more resources: stackshare.com ==> shows which websites use which stacks
+            **** more pictures of notes from Udemy in this chapter 22 folder***
+
+Requests ==> getPostman.com
